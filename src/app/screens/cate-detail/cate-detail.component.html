@@ -1,0 +1,25 @@
+
+<br>
+<div class="row">
+  <button type="button" class="btn btn-danger mr-2 ml-3" [routerLink]="['']">Trang chủ</button>
+  <a routerLink="/add-product/{{cateId}}" class="btn btn-success">Tạo mới</a>
+</div>
+<div class="row">
+  <div col-3 *ngFor="let product of products">
+    <div class="card" style="width: 18rem;">
+      <img [src]="product.image" class="card-img-top" alt="...">
+      <div class="card-body">
+        
+          <h5 class="card-title">Name: {{product.name}}</h5>
+          <h5 class="card-title">Detail: {{product.detail}}</h5>
+          <h5 class="card-title">Price: {{product.price}} VND</h5>
+        
+        <a routerLink="/cate/{{cateId}}/edit-product/{{product.id}}" class="btn btn-primary">Sửa</a>
+        &nbsp;
+        <button (click)="removeProduct(product)" type="button" class="btn btn-danger">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

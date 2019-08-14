@@ -1,0 +1,58 @@
+<div class="container">
+	<div class="row  justify-content-center">
+	  <div class="col-md-6">
+		<h1>Sửa sp</h1>
+		<form [formGroup]="model">
+		  <input type="hidden" formControlName="id" class="form-control">
+		  <label for="">Name</label>
+		  <input type="text" class="form-control" formControlName="name"><br>
+		  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+			<div *ngIf="name.errors.required">
+			  Điền tên sp
+			</div>
+			<div *ngIf="name.errors.minlength">
+			  Tên sp > 4 kí tự
+			</div>
+		  </div>
+		  <label for="">Image</label>
+		  <input type="text" class="form-control" formControlName="image"><br>
+		  <div *ngIf="image.invalid && (image.dirty || image.touched)" class="alert alert-danger">
+			<div *ngIf="image.errors.required">
+			  Nhập ảnh
+			</div>
+		  </div>
+		  <label for="">Category</label>
+		  <select name="" id="" class="form-control" formControlName="categoryId">
+			<option *ngFor="let cate of cates" value="{{cate.id}}">{{cate.name}}</option>
+		  </select> <br>
+		  <label for="">Price</label>
+		  <input type="text" class="form-control" formControlName="price"><br>
+		  <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert alert-danger">
+			<div *ngIf="price.errors.required">
+			  Nhập Giá
+			</div>
+			<div *ngIf="price.errors.pattern">
+			  Phải là số và lớn > 0
+			</div>
+		  </div>
+		  <label for="">Detail</label>
+		  <input type="text" class="form-control" formControlName="detail"><br>
+		  <div *ngIf="detail.invalid && (detail.dirty || detail.touched)" class="alert alert-danger">
+			<div *ngIf="detail.errors.required">
+			  Nhập Chi tiết
+			</div>
+		  </div>
+		  <label for="">Ngày</label>
+		  <input type="date" class="form-control" formControlName="createdAt"> <br>
+		  <div *ngIf="createdAt.invalid && (createdAt.dirty || createdAt.touched)" class="alert alert-danger">
+			<div *ngIf="createdAt.errors.required">
+			  Nhập thời gian
+			</div>
+		  </div>
+		  <a routerLink="/">Về home</a>
+		  <input type="button" value="Save" (click)="save()" class="btn btn-success">
+		  <br>
+		</form>
+	  </div>
+	</div>
+  </div>
